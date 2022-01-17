@@ -3,6 +3,7 @@ import MyTable from '@/components/Form/MyTable';
 
 const PeopleInfo = () => {
   const formData = [
+    { dataIndex: 'id', key: 'id', title: 'ID' },
       { key: 'jg', dataIndex: 'jg', title: '机构' },
     { key: 'name', dataIndex: 'sex', title: '姓名' },
       {key: 'sex' , dataIndex: 'sex' ,title:'机构'},
@@ -22,7 +23,7 @@ const PeopleInfo = () => {
 
   ];
   return <div>
-    <MyTable info={formData} url={'listPeople'}/>
+    <MyTable info={formData} url={'people'}/>
   </div>;
 };
 export default PeopleInfo;

@@ -1,6 +1,7 @@
 import React from 'react';
 import MyTable from '@/components/Form/MyTable';
-
+import { useRequest } from '@/.umi/plugin-request/request';
+import request from '../../request';
  const LoadInfo =()=>{
    const formData = [
      { dataIndex: 'id', key: 'id', title: 'ID' },

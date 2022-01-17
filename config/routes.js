@@ -58,7 +58,7 @@ export default [
     path: '/video',
     name: 'video',
     icon: 'smile',
-    component: './Video',
+    component: './MyVideo',
   },
   {
     path: '/test',
