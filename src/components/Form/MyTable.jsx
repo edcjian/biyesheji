@@ -16,11 +16,6 @@ const MyTable = ({ info, url = null ,insert=null}) => {
     title: 'Action',
     dataIndex: '',
     key: 'x',
-    render: ({ id }) => <a onClick={del(id)}>Del</a>,
-  }, {
-    title: 'Action',
-    dataIndex: '',
-    key: 'x',
     render: (e) => <a onClick={() => {
       setAction('edit');
       setCurrent(e);

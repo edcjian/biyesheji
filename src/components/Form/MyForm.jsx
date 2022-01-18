@@ -29,8 +29,12 @@ export const MyForm =({formData,finish=()=>{},isVisible=true,fill=[]},children)=
   }
     const [form] = useForm();
   const onFill = () => {
-    form.setFieldsValue(fill?.filter(it=>it.type===null));
-    //todo
+  try {
+    form.setFieldsValue(fill);
+  }
+    catch (e) {
+      
+    }
   };
 /*    {Object.entries(formData).map((it, index) =>
         <Form.Item key={index} name={it[0]} label={it[0]} rules={[{required: true}]}>

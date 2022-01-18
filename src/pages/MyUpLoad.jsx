@@ -4,7 +4,7 @@ import { UploadOutlined } from '@ant-design/icons';
 import request from '../../request';
 import axios from 'axios';
 
-const MyUpLoad = () => {
+const MyUpLoad = ({id}) => {
   async function fileUpload(file) {
     console.log(file)
     // let files = f["assets"][0]
@@ -17,7 +17,8 @@ const MyUpLoad = () => {
     }
     let res = await axios.post(
       'http://localhost:8080/test/upload', data, config)
-    console.log(res.data.data)
+    console.log([res.data.data,id])
+    await  request.post('video/update',{link:res.data.data,id:id})
     // let a = {...e, cover: res.data.data,upId:state.id}
     console.warn(a)
 /*    let r = await request.post('/info', a);

@@ -78,6 +78,12 @@ export default [
     component: './PeopleInfo',
   },
   {
+    path: '/list',
+    name: 'List',
+    icon: 'smile',
+    component: './MyList',
+  },
+  {
     name: 'list.table-list',
     icon: 'table',
     path: '/list',
@@ -87,6 +93,7 @@ export default [
     path: '/',
     redirect: '/welcome',
   },
+
   {
     component: './404',
   }

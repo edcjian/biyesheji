@@ -1,5 +1,6 @@
 import React from 'react';
 import MyTable from '@/components/Form/MyTable';
+import Test from '@/pages/Test';
 
 export const formData = [
   { dataIndex: 'id', key: 'id', title: 'ID' },
@@ -11,7 +12,9 @@ export const formData = [
   { dataIndex: 'resp', key: 'resp', title: '监控区负责人' },
   { dataIndex: 'use', key: 'use', title: '使用日期' },
   { dataIndex: 'remarks', key: 'remarks', title: '备注信息' },
-  { dataIndex: 'location', key: 'location', title: '位置' },
+  { dataIndex: 'location', key: 'x', title: '位置' ,render:(a)=><div>
+      <Test location={a}/>
+    </div>},
 ];
 const Car = () => {
 

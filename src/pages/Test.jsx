@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { MyForm } from '@/components/Form/MyForm';
 import request from '../../request';
-import { Button, Card, Cascader } from 'antd';
+import { Alert, Button, Card, Cascader } from 'antd';
 import data from './data.json';
 import {Map, Marker, NavigationControl, InfoWindow} from 'react-bmapgl';
 
@@ -11,7 +11,8 @@ import { useRequest } from '@/.umi/plugin-request/request';
 import fs from 'fs';
 import Search from 'antd/es/input/Search';
 
-const Test = () => {
+const Test = ({location}) => {
+  console.log(location)
 const loc = useHistory()
   const [isVisible, setIsVisible] = useState(false);
   const [coords, setCoords] = useState();
@@ -58,15 +59,15 @@ const loc = useHistory()
       size='large'
       placeholder='Basic usage' onSearch={onSearch} />
    <Cascader options={datas??[]} onChange={onChange} placeholder='Please select' />
-    {(isVisible&&coords) ?   <Map
+    {(isVisible&&coords||location) ?   <Map
       style={{ height: 450 }}
-      center={new BMapGL.Point( coords?.lng??0,coords?.lat??0)}
+      center={new BMapGL.Point( coords?.lng??location.lng??0,coords?.lat??location.lat??0)}
       zoom={12}
       heading={0}
       tilt={40}
       onClick={e => {
         console.log(e)
-        loc.push('video',[e.x,e.y])
+        loc.push('list',[e.latlng])
       }}
       enableScrollWheelZoom
     />:<Card>数据错误</Card>}

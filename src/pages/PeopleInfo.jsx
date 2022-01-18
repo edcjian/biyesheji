@@ -27,4 +27,4 @@ const PeopleInfo = () => {
   </div>;
 };
 export default PeopleInfo;
-;
+
