@@ -5,7 +5,7 @@ const PeopleInfo = () => {
   const formData = [
     { dataIndex: 'id', key: 'id', title: 'ID' },
       { key: 'jg', dataIndex: 'jg', title: '机构' },
-    { key: 'name', dataIndex: 'sex', title: '姓名' },
+    { key: 'name', dataIndex: 'name', title: '姓名' },
       {key: 'sex' , dataIndex: 'sex' ,title:'机构'},
     { key: 'jh', dataIndex: 'jh', title: '警号' },
     { key: 'jh', dataIndex: 'jh', title: '' },

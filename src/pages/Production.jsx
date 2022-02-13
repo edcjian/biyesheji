@@ -6,6 +6,7 @@ import request from '../../request';
 import MyTable from '@/components/Form/MyTable';
 import { formData } from '@/pages/Car';
 import MyUpLoad from '@/pages/MyUpLoad';
+import { requestAudioAccess } from '@/utils/jstools';
 const { Search } = Input;
 
 
@@ -31,7 +32,7 @@ const Production = () => {
     <Card style={{...row,justifyContent:'space-around'}}>
       <Button type='primary' onClick={info}> 定位显示</Button>
       <Button type='primary'> 查询</Button>
-      <Button type='primary'> 监控</Button>
+      <Button type='primary' onClick={()=>requestAudioAccess()}> 监控</Button>
       <Button type='primary'> 记录</Button>
     </Card>
   </div>;

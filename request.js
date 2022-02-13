@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-export  const ConfigBaseURL = 'http://localhost:8080/test'
+export  const ConfigBaseURL = 'http://localhost:8888/test'
 const request = axios.create({
     baseURL: ConfigBaseURL
     // proxy: {
@@ -12,8 +12,7 @@ const request = axios.create({
 
 /*request.interceptors.request.use(config => {
 
-    config.headers.authorization = window.localStorage.getItem("token")
-
+    // config.headers.authorization = window.localStorage.getItem("token")
 
     return config;
 })*/

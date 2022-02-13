@@ -65,7 +65,7 @@ export default [
     name: 'test',
     icon: 'smile',
     component: './Test',
-  },  {
+  }, {
     path: '/loadInfo',
     name: 'LoadInfo',
     icon: 'smile',
@@ -76,6 +76,23 @@ export default [
     name: 'PeopleInfo',
     icon: 'smile',
     component: './PeopleInfo',
+  },
+  {
+    path: '/camera',
+    name: 'camera',
+    icon: 'smile',
+    component: './Camera',
+  }, {
+    path: '/page',
+    name: 'page',
+    icon: 'smile',
+    component: './Page',
+  },
+  {
+    path: '/ids',
+    name: 'ids',
+    icon: 'smile',
+    component: './WebCamWebAPI',
   },
   {
     path: '/list',
@@ -96,5 +113,5 @@ export default [
 
   {
     component: './404',
-  }
+  },
 ];

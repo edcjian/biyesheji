@@ -3,13 +3,16 @@ import { Button, Form, Input, Select, TimePicker } from 'antd';
 import useForm from 'antd/es/form/hooks/useForm';
 import moment from 'moment';
 import { Option } from 'antd/es/mentions';
+import MyUpLoad from '@/pages/MyUpLoad';
+import request from '../../../request';
 
 
-export const MyForm =({formData,finish=()=>{},isVisible=true,fill=[]},children)=>{
+export const MyForm =({formData,finish,isVisible=true,fill=[],edit,url='',event})=>{
+
   function typeOfComponent(type) {
-    switch (type) {
+    switch (type?.name) {
       case 'time':
-        return <TimePicker defaultOpenValue={moment('00:00:00', 'HH:mm:ss')} />
+        return <TimePicker.RangePicker />
       case 'select':
         return  <Select
           showSearch
@@ -19,10 +22,10 @@ export const MyForm =({formData,finish=()=>{},isVisible=true,fill=[]},children)=
             option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
           }
         >
-          <Option value="jack">Jack</Option>
-          <Option value="lucy">Lucy</Option>
-          <Option value="tom">Tom</Option>
+          {type.extra.map(it=><Option value={it}>{it}</Option>)}
         </Select>
+      case 'custom':
+        return  type?.extra
       default:
         return <Input/>
     }
@@ -33,7 +36,7 @@ export const MyForm =({formData,finish=()=>{},isVisible=true,fill=[]},children)=
     form.setFieldsValue(fill);
   }
     catch (e) {
-      
+
     }
   };
 /*    {Object.entries(formData).map((it, index) =>
@@ -45,7 +48,7 @@ export const MyForm =({formData,finish=()=>{},isVisible=true,fill=[]},children)=
   // const formData=["name", "work"]
     return    isVisible? <Form height="200px" weight="500px"   form={form} name="control-hooks" onFinish={finish} >
         {formData?.map((it,index)=>
-            <Form.Item name={it.key} label={it.title} rules={[{ required: true }]} >
+            <Form.Item name={it.key} label={it.title} rules={[{ required: edit }]} >
               {typeOfComponent(it.type)}
             </Form.Item>
         )

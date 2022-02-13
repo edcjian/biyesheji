@@ -1,12 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import MyTable from '@/components/Form/MyTable';
 import { useRequest } from '@/.umi/plugin-request/request';
 import request from '../../request';
+import Test from '@/pages/Test';
+import Modal from 'antd/es/modal/Modal';
  const LoadInfo =()=>{
+   const [visible, setVisible] = useState(false);
+   const [data, setData] = useState('');
    const formData = [
      { dataIndex: 'id', key: 'id', title: 'ID' },
-     { dataIndex: 'name', key: 'name', title: '道路名' },
-     { dataIndex: 'ssdd', key: 'ssdd', title: '所属大队' },
+     {
+       dataIndex: 'name', key: 'name', title: '道路名' },
+     { dataIndex: 'map', key: 'map', title: '地图', render: (a) => <a onClick={() => {
+         setData(a);
+         setVisible(true);
+       }}>{a}</a>, },
+     { dataIndex: 'ssjd', key: 'ssjd', title: '所属街道' },
      { dataIndex: 'sszd', key: 'sszd', title: '所属中队' },
      { dataIndex: 'dlsx', key: 'dlsx', title: '道路属性' },
      { dataIndex: 'level', key: 'level', title: '道路分类等级' },
@@ -33,7 +42,10 @@ import request from '../../request';
      { dataIndex: 'ccybh', key: 'ccybh', title: '操作员编号' },
    ];
     return <div>
-      <MyTable info={formData} url={'test'}/>
+      <MyTable info={formData} url={'road'} />
+      <Modal visible={visible} onCancel={()=>setVisible(false)}>
+        {data&&<Test a={data}/>}
+      </Modal>
     </div>
 }
 export  default  LoadInfo

@@ -4,7 +4,7 @@ import VideoPlayer from '@/components/Form/VideoPlayer';
 import MyUpLoad from '@/pages/MyUpLoad';
 import { useRequest } from '@/.umi/plugin-request/request';
 import request from '../../request';
-import { Button } from 'antd';
+import { Button, Upload } from 'antd';
 import  {row} from './style.js'
 const MyVideo = ({location}) => {
   const  [link, setLink] = useState()
@@ -21,12 +21,15 @@ const [loc, setLoc] = useState();
       title: 'link',
       dataIndex: '',
       key: 'x',
+      type:{
+        name:'custom',
+        extra:<MyUpLoad id={''}/>
+      },
       render: ({ link,id }) =><div style={row}>
         <a onClick={()=>{
           console.log(link)
           setLink(link)
         }}>{link}</a>
-        <MyUpLoad id={id}/>
       </div>,
     },
     { dataIndex: 'qy', key: 'qy', title: '区域' },

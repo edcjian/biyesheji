@@ -20,7 +20,6 @@ const MyUpLoad = ({id}) => {
     console.log([res.data.data,id])
     await  request.post('video/update',{link:res.data.data,id:id})
     // let a = {...e, cover: res.data.data,upId:state.id}
-    console.warn(a)
 /*    let r = await request.post('/info', a);
     console.log(r)*/
 
